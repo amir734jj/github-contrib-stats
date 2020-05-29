@@ -6,6 +6,8 @@ import (
 	underscore "github.com/ahl5esoft/golang-underscore"
 	"github.com/google/go-github/github"
 	"golang.org/x/oauth2"
+	"os"
+	_ "os"
 	"sort"
 )
 
@@ -18,7 +20,7 @@ func main() {
 	ctx := context.Background()
 
 	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: ""},
+		&oauth2.Token{AccessToken: os.Getenv("GITHUB_API_KEY")},
 	)
 	tc := oauth2.NewClient(ctx, ts)
 	client := github.NewClient(tc)
