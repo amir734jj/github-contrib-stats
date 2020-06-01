@@ -5,5 +5,5 @@ GitHub status
 
 API:
 ```
-GET /username
+GET /<github-username>
 ```
